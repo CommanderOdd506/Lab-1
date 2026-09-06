@@ -5,10 +5,18 @@ using UnityEngine;
 public class Piece : MonoBehaviour
 {
     public enum PieceType { Pawn, Bishop, Knight, Rook, Queen, King}
-
+    [Header("Piece Type")]
+    [Tooltip("Change the type of piece this Icon is")]
     public PieceType type;
+    
+    [Header("Color of Piece")]
+    [Tooltip("Change the color of piece this Icon is")]
     public Color color;
+    
+    [Header("Position")]
+    [Tooltip("Change the location of the piece this icon is at in (x,y) coordinates, (0,0) being the square A1")]
     public Vector2 position;
+
     private void OnDrawGizmos()
     {
         Vector3 center = new Vector3(position.x - .5f + 1, position.y - .5f + 1);
