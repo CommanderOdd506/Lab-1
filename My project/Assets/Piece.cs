@@ -53,6 +53,33 @@ public class Piece : MonoBehaviour
                 }
                 break;
             case PieceType.Knight:
+                for (int i = 0; i < 4; i++)
+                {
+                    for (int j = 1; j < 3; j++)
+                    {
+                        int newY = j;
+                        int newX = j == 2? 1 : 2;
+                        switch (i)
+                        {
+                            case 1:
+                                newY = -newY;
+                                break;
+                            case 2:
+                                newX = -newX;
+                                break;
+                            case 3:
+                                newX = -newX;
+                                newY = -newY;
+                                break;
+                            default:
+                                break;
+                        }
+                        Vector3 center = new Vector3(newX + .5f + position.x, newY + 0.5f + position.y, 0);
+                        Vector3 size = new Vector3(1, 1, 0);
+
+                        Gizmos.DrawCube(center, size);
+                    }
+                }
                 break;
             case PieceType.Rook:
                 for (int i = -8; i < 8; i++)
